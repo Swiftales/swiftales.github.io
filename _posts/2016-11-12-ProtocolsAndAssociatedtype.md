@@ -154,6 +154,7 @@ Hope we now have good understanding of `associatedtype`. Many people, including 
 
 In next blog, we will try to build UITableView's generic datasource which can be re-used for different dataset using the concept of `associatedtype`.
 
+Happy Swifting.
 
 
 
