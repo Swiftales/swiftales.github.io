@@ -123,7 +123,7 @@ If we remove `Vehicle` constraint from `associatetype` in `AutoMobileServiceCent
 
 I have also filed a [radar](https://bugs.swift.org/browse/SR-1581) for this issue.
 
-Lastly, we can also use generics to fulfill associatedtype requirement. We will now see how can we ultimately make a generic car serivce center. :)
+Lastly, we can also use generics to fulfill `associatedtype` requirement. We will now see how can we ultimately make a generic car serivce center. :)
 
 ```swift
 protocol Vehicle {}
