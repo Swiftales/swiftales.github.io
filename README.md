@@ -1,6 +1,6 @@
 
 # Blogs
-
+- Level up on protocols, associatedtypes and extensions.
 - Protocols and associatedtypes.
 - Swift type inference and UIColor convenience initialiser.
 - Swift protocols with 'get set' and 'get' properties.

@@ -168,3 +168,4 @@ myVoiceAssistant.version = "2.0" // Compilation Error: cannot assign to property
 
 I was always confused in the beginning that if we can set the properties which are marked as get in protocol, then how is it different from get set property. Later I realised that we are actualy using setter given by the conforming types. And I find this behaviour very useful in encapsulation. If you have also had this confusion, then I hope that this post might have made your head feel little lighter by now.
 
+Happy Swifting.🃏
