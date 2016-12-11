@@ -135,11 +135,11 @@ The is the layout of my cell, which has three labels horizontally aligned inside
 
 ![Image alt](/assets/posts/Deep_Dive_Protocols/cellLayout.png "Cell")
 
-I have name it.......`ThreeLabelTableViewCell` 😛. Again, pardon my naming.
+I have named it.......`ThreeLabelTableViewCell` 😛. Again, pardon my naming.
 
 There is nothing in the implementation of `ThreeLabelTableViewCell`.
 
-This is how my Storyboard looks like. Nothing special.
+This is how my Storyboard looks like. Nothing extra ordinary.
 
 ![Image alt](/assets/posts/Deep_Dive_Protocols/storyboard.png "Storyboard")
 
@@ -165,9 +165,9 @@ extension Person {
 }
 ```
 
-We created a struct called `Person`. Next we created an `extension` of `Person` which conform to `TableViewCellDataRepresentable`. Another `extension` just has some helper properties which we will be going use in a while.
+We created a `struct` called `Person`. Next we created an `extension` of `Person` which conforms to `TableViewCellDataRepresentable`. Another `extension` just has some helper properties which we will be going use shortly.
 
-That was all our basic setup. The only new thing we need to create before we go into implementation of our ViewController is a `TableViewCellDecorator` which can decorate `ThreeLabelTableViewCell` using `Person`.
+That was all for our basic setup. The only new thing we need to do before we go into implementation of our ViewController is a `TableViewCellDecorator` which can decorate `ThreeLabelTableViewCell` using `Person`.
 
 ```swift
 struct HorizontalDecorator: TableViewCellDecorator {
@@ -216,7 +216,6 @@ extension UIFont {
 
 We will now see, that our `TableHandler` does not need to have any information about `Person` and `ThreeLabelTableViewCell` to display data from `Person` on `ThreeLabelTableViewCell`. Thats crazy enough for me to be fan of `protocol` and `associatedtype` in `Swift` 👍.
 
-
 This also means that its very easy to hook up any other combination of decorator, cell and datatype with our `TableViewHandler`.
 
 Now lets implement our ViewController.
@@ -252,9 +251,9 @@ Thats it. Thats all in our ViewController. This is how it looks when we run it.
 
 ![Image alt](/assets/posts/Deep_Dive_Protocols/personTable.png "TableView")
 
-Yea, not one of the most gorgeous user interface. Naming things is not the only thing in which I am **not** good at but hey, its just a demo, so dont judge.
+Yea, not one of the most gorgeous user interface. Naming things is not the only thing in which I am **not** good at, but hey, its just a demo, so don't judge.
 
-We can easily create a new decorator change the look of our TableView. 
+We can easily create a new decorator to change the look of our TableView. 
 
 ```swift
 struct VerticalDecorator: TableViewCellDecorator {
@@ -270,9 +269,9 @@ struct VerticalDecorator: TableViewCellDecorator {
 }
 ```
 
-This is a `VerticalDecorator`, which will layout view of our `ThreeLabelTableViewCell` differently using same `Person` modal.
+This is a `VerticalDecorator`, which will layout views of our `ThreeLabelTableViewCell` differently using same `Person` modal.
 
-We just need to change the decalration of out `TableViewHandler` as below.
+We just need to change the declaration of our `TableViewHandler` as below.
 
 ```swift
 private lazy var tableViewDatasource: TableViewHandler<VerticalDecorator> = {
@@ -287,7 +286,7 @@ Thats how our table looks now.
 
 I know its looking even worse now.
 
-But the idea is, you can use any combination of dataType and cellType with `TableViewHandler`. You can use another `TableViewCellDecorator` which decorates some other cell with `Person` data or which decorates `ThreeLabelTableViewCell` with some other dataType or some other cell with some other data. I hope you get my point 🙄.
+But the idea is, you can use any combination of data type and cell with `TableViewHandler`. You can use another `TableViewCellDecorator` which decorates some other cell with `Person` data or which decorates `ThreeLabelTableViewCell` with some other data type or some other cell with some other data type. I hope you get my point 🙄.
 
 
 ## Extending TableViewHandler.
@@ -314,7 +313,7 @@ func addData(data: [T.DataType], animated: Bool = true) {
 
 Its again data type independent. It will append new data and accordingly add new cells at the bottom of tableView.
 
-While adding new cells was straight forward, delete existing data and cells is little bit ticky. The implementation of removing data should somewhat look like below.
+While adding new cells was straight forward, deleting existing data and cells is little bit ticky. The implementation of removing data should somewhat look like below.
 
 ```swift
 //In TableViewHandler class, add this method.
@@ -374,7 +373,7 @@ extension TableViewHandler where T.DataType: Equatable {
 }
 ```
 
-Now this `removeData` function is only avalibale if the `T.DataType`, i.e `TableViewCellDataRepresentable` conforms to `Equatable`. 
+Now the `removeData` function is only avalibale if the `T.DataType`, i.e `TableViewCellDataRepresentable` conforms to `Equatable`. 
 
 In our case, `Person` does not conform to `Equatable` so we wont be even able to call `removeData`. Thats mind blowing.
 
@@ -389,7 +388,6 @@ extension Person: Equatable {
 ```
 
 Now we can call `removeData` as well.
-
 
 ## One last thing.
 
