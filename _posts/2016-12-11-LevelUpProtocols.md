@@ -3,7 +3,7 @@ layout: post
 title: Level up on protocols, associatedtypes and extensions.
 ---
 
-In the [previous](https://swiftales.github.io/ProtocolsAndAssociatedtype/) blog post, we learnt about basic use of `associatedtype`. In this blog post, we will see some advance use `protocol`, `associatedtype` and `extension` by building a generic `UITableview` datasource.
+In the [previous](https://swiftales.github.io/ProtocolsAndAssociatedtype/) blog post, we learnt about basic use of `associatedtype`. In this blog post, we will see some advance use of `protocol`, `associatedtype` and `extension` by building a generic `UITableview` datasource.
 
 ## Lets get started
 
