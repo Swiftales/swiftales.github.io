@@ -183,7 +183,7 @@ struct HorizontalDecorator: TableViewCellDecorator {
 }
 ```
 
-In above `TableViewCellDecorator`, the `CellType` and `DataType` are inferred from the paramter types of `update` function. So the complier has the concrete type for `CellType` as `ThreeLabelTableViewCell` and DataType as `Person`. Also there is no type casting involved as we won't be able to pass any other cell than `ThreeLabelTableViewCell` and any other data type than `Person`.
+In above `TableViewCellDecorator`, the `CellType` and `DataType` are inferred from the paramter types of `update` function. So the complier has the concrete type for `CellType` as `ThreeLabelTableViewCell` and DataType as `Person`. Also there is no type casting involved as we won't be able to pass any other cell than `ThreeLabelTableViewCell` and any other dataType then `Person`.
 
 Go through it once again, its not that complex.
 
@@ -320,12 +320,13 @@ While adding new cells was straight forward, deleting existing data and cells is
 
 func removeData(data: [T.DataType], animated: Bool = true) {
         var indicesToRemove: [IndexPath] = []
+        let proxyDataSet = dataSet
         for index in 0..<data.count {
-            let indexToRemove = dataSet.index() { return $0 == data[index] }
-            guard let _indexToRemove = indexToRemove else {
-                continue
+            guard let _indexToRemove = proxyDataSet.index(where: { return $0 == data[index] }),
+                let currentIndex = dataSet.index(where: { return $0 == data[index] })else {
+                    continue
             }
-            dataSet.remove(at: _indexToRemove)
+            dataSet.remove(at: currentIndex)
             indicesToRemove.append(IndexPath(row: _indexToRemove, section: 0))
         }
         if animated {
@@ -336,6 +337,7 @@ func removeData(data: [T.DataType], animated: Bool = true) {
             tableView.reloadData()
         }
     }
+
 
 ```
 
