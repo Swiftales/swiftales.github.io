@@ -183,7 +183,7 @@ struct HorizontalDecorator: TableViewCellDecorator {
 }
 ```
 
-In above `TableViewCellDecorator`, the `CellType` and `DataType` are inferred from the paramter types of `update` function. So the complier has the concrete type for `CellType` as `ThreeLabelTableViewCell` and DataType as `Person`. Also there is no type casting involved as we won't be able to pass any other cell than `ThreeLabelTableViewCell` and any other dataType then `Person`.
+In above `TableViewCellDecorator`, the `CellType` and `DataType` are inferred from the paramter types of `update` function. So the complier has the concrete type for `CellType` as `ThreeLabelTableViewCell` and DataType as `Person`. Also there is no type casting involved as we won't be able to pass any other cell than `ThreeLabelTableViewCell` and any other data type than `Person`.
 
 Go through it once again, its not that complex.
 
