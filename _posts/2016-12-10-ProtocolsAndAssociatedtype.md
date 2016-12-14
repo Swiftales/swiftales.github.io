@@ -152,7 +152,7 @@ struct GenericCarSericeCenter<T>: AutoMobileServiceCenter where T: Car {
 Hope we now have good understanding of `associatedtype`. Many people, including myself, find it bit confusing but its a very powerful technique in protocol oreinted design.
 
 
-In next blog, we will try to build UITableView's generic datasource which can be re-used for different dataset using the concept of `associatedtype`.
+In [next blog](https://swiftales.github.io/LevelUpProtocols/), we will try to build UITableView's generic datasource which can be re-used for different dataset using the concept of `associatedtype`.
 
 Happy Swifting.🃏
 
